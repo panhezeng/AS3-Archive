@@ -1,0 +1,192 @@
+@charset "utf-8";
+body {
+	font-size: 14px;
+	background: #4a5875 url(../images/bottom.jpg) fixed bottom center no-repeat;
+}
+.w1000 #header, .w1000 #content, .w1000 #footer {
+	width: 1000px;
+}
+.w1000 #header {
+	height: 240px;
+	overflow: hidden;
+}
+.w1000 #footer {
+	height: 205px;
+	overflow: hidden;
+}
+.flash {
+	width: 756px;
+	height: 600px;
+	overflow: hidden;
+}
+#main {
+	float: left;
+	position: relative;
+	background: #4a5875 url(../images/loading.jpg) top no-repeat;
+}
+#main a {
+	color: #ffffff;
+	cursor: pointer;
+}
+#main a:hover {
+	color: #ff0000;
+}
+#flash-other {
+	position: absolute;
+	z-index: 1000;
+}
+.wait {
+	width: 756px;
+	margin-top: 500px;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+}
+.otherDefault {
+	background: #4a5875 url(../images/loading.jpg) top no-repeat;
+}
+.error {
+	background: #4a5875 url(../images/error.png) no-repeat 10px 10px;
+}
+.error p {
+	width: 400px;
+	padding: 100px 0 0 300px;
+	line-height: 20px;
+	color: #8BBF40;
+}
+.error strong {
+	color: #FF0000;
+}
+#flash-content {
+	padding: 200px 0 0 290px;
+}
+#flash-content img {
+	padding: 0 0 20px 60px;
+}
+#flash-content a {
+	color: #000000;
+}
+#flash-content a:hover {
+	color: #ff0000;
+}
+.get-out {
+	position: absolute;
+	left: -9999em;
+}
+.vanish {
+	display: none;
+	visibility: hidden;
+}
+#login {
+	width: 1000px;
+	background: url(../images/frame_middle_bg.jpg) repeat-y;
+}
+#framelogin {
+	background: url(../images/frame_middle_login.jpg) top no-repeat;
+	padding-left: 300px;
+	width: 700px;
+	height: 260px;
+}
+#framelogin input {
+	border: none;
+}
+#username {
+	padding-top: 60px;
+	font-size: 16px;
+}
+.username01 {
+	float: left;
+	width: 50px;
+	color: #ffcc99;
+	font-weight: bold;
+	letter-spacing: 4px;
+	padding-top: 5px;
+}
+.username02 {
+	float: left;
+	width: 195px;
+	height: 34px;
+	background: url(../images/login_form_bg.jpg);
+}
+.username02 input {
+	margin: 7px 0 0 8px;
+	width: 179px;
+	height: 20px;
+}
+.username03 {
+	float: left;
+	padding: 5px 0 0 10px;
+	width: 400px;
+	color: #FDA520;
+}
+#password {
+	padding-top: 10px;
+	clear: both;
+	font-size: 16px;
+}
+#login1 {
+	padding-top: 10px;
+	*
+	padding-top: 5px;
+	font-size: 14px;
+	clear: both;
+	color: #FDA520;
+}
+#loginOne1 {
+	float: left;
+	width: 70px;
+	height: 20px;
+	padding: 1px 0 0 80px;
+	*
+	padding: 2px 0 0 80px;
+	overflow: hidden;
+}
+#loginOne1 a {
+	color: #FDA520;
+}
+#loginOne1 a:hover {
+	color: #ffffff;
+}
+#loginOne2 {
+	float: left;
+	width: 80px;
+	height: 20px;
+	overflow: hidden;
+}
+#login2 {
+	padding-top: 10px;
+	*
+	padding-top: 5px;
+	font-size: 14px;
+	clear: both;
+}
+#login2 input {
+	margin: 7px 0 0 110px;
+	width: 70px;
+	height: 33px;
+	background: url(../images/btn1.jpg);
+}
+#frame-left-right {
+	float: left;
+	width: 1000px;
+}
+#frame-left {
+	float: left;
+	width: 122px;
+	height: 600px;
+	background: url(../images/frame_left.jpg) top left no-repeat;
+}
+#frame-right {
+	float: left;
+	width: 122px;
+	height: 600px;
+	background: url(../images/frame_right.jpg) top right no-repeat;
+}
+#frame-bottom {
+	float: left;
+	width: 1000px;
+	height: 64px;
+	background: url(../images/frame_bottom.jpg) bottom no-repeat;
+}
+

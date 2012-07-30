@@ -1,0 +1,50 @@
+service API 在很多 mediator 中通过相同的方式访问, 将此行为封装到一个 command 里有益于保持此行为的一致性并减少对此 service 的反复调用以及在你的 mediator 里的直接访问.
+
+ModelPrepCommand 
+ViewPrepCommand
+
+view和model下可按需建utils,events,interfaces文件夹,参考Index Cards示例
+
+所有Command,Mediator,Proxy的通知常量都写ApplicationFacade里。或者Proxy发给Mediator的通知常量写Proxy里，
+
+// Notification name constants
+
+// application
+ public static const STARTUP:String  = "startup"
+// command
+// view
+// model
+
+
+和Comp交互触发的事件在其内部处理，当影响到框架其他部分时，发自定义事件给自己的Mediator，由其转发框架通知。或者Mediator接管所有Comp交互事件。我倾向Mediator掌握所有控制权，robotlegs也是这样。
+
+Comp提供API满足其Mediator所有需求。
+
+Component:
+
+// Event name to tell Mediator to do something
+public static const DO_SOMETHING:String = "doSomething";
+
+
+dispatchEvent(new Event(DO_SOMETHING));
+
+
+Mediator:
+
+// Listen for events from the view component 
+  viewComponent.addEventListener(ViewComponent.DO_SOMETHING, _onDoSomething);
+
+    private function onDoSomething(event:Event):void
+    {
+
+            sendNotification( ApplicationFacade.DO_SOMETHING);
+            
+     }
+
+Mediator:
+
+同步数据通过Proxy实例直接取，异步数据，等Proxy发通知。
+
+
+
+AsyncCommand是有生命周期的异步Command，到期了用commandComplete();  销毁。具体看Sequential示例

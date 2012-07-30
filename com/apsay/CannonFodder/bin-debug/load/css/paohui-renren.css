@@ -1,0 +1,242 @@
+@charset "utf-8";
+body {
+	font-size: 14px;
+	background: #FFFFFF;
+}
+#authorize {
+	position: absolute;
+	z-index: 1001;
+	width: 800px;
+	height: 600px;
+	overflow: hidden;
+}
+#content {
+	width: 756px;
+	height: 1380px;
+	overflow: hidden;
+}
+.flash {
+	width: 756px;
+	height: 600px;
+	overflow: hidden;
+}
+#nav {
+	width: 610px;
+	height: 82px;
+	padding-left: 146px;
+	overflow: hidden;
+	background: url(../images/head_nav_bg.png) no-repeat;
+}
+#nav a {
+	float: left;
+	display: block;
+	width: 113px;
+	height: 50px;
+	margin-top: 20px;
+	text-indent: -9999em;
+	font-size: 1px;
+}
+a.head-nav-d-1 {
+	cursor: default;
+	background: url(../images/nav_d_r1_c1.png) no-repeat;
+}
+a.head-nav-d-2 {
+	cursor: default;
+	background: url(../images/nav_d_r1_c2.png) no-repeat;
+}
+a.head-nav-1 {
+	background: url(../images/nav_r1_c1.png) no-repeat;
+}
+a.head-nav-1:hover {
+	background: url(../images/nav_o_r1_c1.png) no-repeat;
+}
+a.head-nav-2 {
+	background: url(../images/nav_r1_c2.png) no-repeat;
+}
+a.head-nav-2:hover {
+	background: url(../images/nav_o_r1_c2.png) no-repeat;
+}
+a.head-nav-3 {
+	background: url(../images/nav_r1_c4.png) no-repeat;
+}
+a.head-nav-3:hover {
+	background: url(../images/nav_o_r1_c4.png) no-repeat;
+}
+a.head-nav-4 {
+	background: url(../images/nav_r1_c5.png) no-repeat;
+}
+a.head-nav-4:hover {
+	background: url(../images/nav_o_r1_c5.png) no-repeat;
+}
+#info {
+	font-size: 12px;
+	width: 756px;
+	height: 20px;
+	padding-top: 10px;
+	color: #999999;
+	overflow: hidden;
+}
+#main {
+	position: relative;
+	background: #335733 url(../images/loading.jpg) top no-repeat;
+}
+#main a {
+	color: #ffffff;
+	cursor: pointer;
+}
+#main a:hover {
+	color: #ff0000;
+}
+#flash-other {
+	position: absolute;
+	z-index: 1000;
+}
+#flash-other .backupClose {
+	float: right;
+	background: #FFFFFF;
+	padding: 6px;
+}
+
+.wait {
+	position: absolute;
+	z-index: 900;
+	width: 756px;
+	top: 500px;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+}
+.otherDefault {
+	background: #335733 url(../images/loading.jpg) top no-repeat;
+}
+.error {
+	background: #FFFFFF url(../images/error.jpg) no-repeat 78px 102px;
+}
+.error p {
+	width: 312px;
+	padding: 121px 0 0 340px;
+	line-height: 20px;
+	color: #D78787;
+}
+.error strong {
+	color: #9E0101;
+}
+#flash-other a {
+	color: #000000;
+}
+#flash-other a:hover {
+	color: #FF0000;
+}
+#flash-content {
+	width: 376px;
+	height: 440px;
+	padding: 160px 0 0 380px;
+	background: #FFFFFF url(../images/error.jpg) no-repeat 78px 102px;
+	overflow: hidden;
+}
+#flash-content img {
+	padding: 0 0 20px 60px;
+}
+#flash-content a {
+	color: #000000;
+}
+#flash-content a:hover {
+	color: #ff0000;
+}
+#userIDFollow {
+	margin-top: 5px;
+	width: 756px;
+	height: 30px;
+}
+#userid {
+	float: left;
+	width: 200px;
+	height: 30px;
+}
+#follow {
+	float: right;
+	width: 150px;
+	height: 30px;
+}
+#gamers {
+	width: 756px;
+	height: 100px;
+	background: #FFFFFF url(../images/gamers.jpg) no-repeat;
+}
+#gamers .title {
+	width: 756px;
+	height: 25px;
+	text-align: center;
+	line-height: 28px;
+	letter-spacing: 1px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+#gamers .content {
+	width: 756px;
+	height: 75px;
+}
+#gamersGG {
+	float: left;
+	padding-left: 7px;
+	width: 371px;
+	height: 75px;
+}
+#gamersMM {
+	float: right;
+	padding-right: 7px;
+	width: 371px;
+	height: 75px;
+}
+#gamers .icon {
+	width: 52px;
+	height: 52px;
+	overflow: hidden;
+}
+#gamersGG .icon {
+	background: #14283B;
+}
+#gamersMM .icon {
+	background: #300303;
+}
+#gamers img {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+}
+#gamersGG img {
+	border: solid 1px #14283B;
+}
+#gamersMM img {
+	border: solid 1px #300303;
+}
+#gamers .name {
+	width: 52px;
+	height: 23px;
+	line-height: 16px;
+	overflow: hidden;
+}
+#gamers a {
+	float: left;
+	width: 53px;
+	height: 75px;
+	display: block;
+	overflow: hidden;
+	text-align: center;
+	font-size: 12px;
+	color: #3B2314;
+	cursor: pointer;
+}
+#gamers a:hover {
+	color: #ffffff;
+}
+#daily {
+	width: 756px;
+	height: 200px;
+}
+#chat {
+	margin-top: 10px;
+	width: 756px;
+	height: 390px;
+}

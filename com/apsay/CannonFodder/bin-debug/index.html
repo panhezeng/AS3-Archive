@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="google" value="notranslate" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="锐易通是一个立足于互联网的娱乐软件公司，由侯锐和刘颖于2005年在北京创立。我们的业务主要是娱乐软件的研发和运营以及为客户提供相关的技术支持服务。" />
+		<meta name="keywords" content="锐易通, 互联网游戏, 网络游戏, 互联网娱乐, WEB游戏, WEB3.0, 语音互动游戏, 文字互动游戏, MUD, 月球村, 泡泡鱼, 炮灰战纪, raytoon" />
+		<meta name="author" content="侯锐, 刘洪峰" />
+		<meta name="verify-v1" content="cgXLf1ZMaP0z3cBObKAKIwjuVqM0L0RXhJ9RkSQkOq4=" />
+		<meta name="y_key" content="89a49fc9634e2596" />
+		<title>炮灰战纪官方网站</title>
+		<link rel="stylesheet" type="text/css" href="load/css/cssbase-min.css" />
+		<link rel="stylesheet" type="text/css" href="load/css/paohui.css" />
+		<script type="text/javascript" src="load/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="load/scripts/jquery.url.js"></script>
+		<script type="text/javascript" src="load/scripts/swfobject.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				addSWF();
+			})
+			function addSWF() {
+				var session = jQuery.url().param("sessionid");
+				if(!session) {
+					jsError(1, "用户不存在");
+					return;
+				};
+				var flashvars = {
+					config : [session, "58.83.236.251", 7001,""]
+				};
+				var params = {
+					wmode : "opaque",
+					allowScriptAccess : "always",
+					hasPriority : "true"
+				};
+				var attributes = {
+					id : "paohui",
+					name : "paohui"
+				};
+				swfobject.embedSWF("CannonFodder.swf", "flash-content", "756", "600", "10.2", "load/swf/expressInstall.swf", flashvars, params, attributes);
+				//如果安装显示安装flashplayer页面DIV
+				if((jQuery("#flash-paohui").find("a").attr("href") == "http://www.adobe.com/go/getflashplayer") || (jQuery("#paohui").attr("data") == "load/swf/expressInstall.swf")) {
+					jQuery("#flash-other").hide();
+					jQuery("#flash-content").show();
+				};
+			}
+
+			function goLogin() {
+				window.location.href = "http://test-paohui.raytoon.cn:7002/login";
+			}
+
+			function reloadSWF() {
+				window.location.reload();
+			}
+
+			function showFlashOther(addClass) {
+				jQuery("#flash-other").empty();
+				jQuery("#flash-other").show();
+				if(addClass)
+					jQuery("#flash-other").addClass(addClass);
+
+			}
+
+			function showFlash() {
+				jQuery("#flash-other").hide();
+				jQuery("#flash-other").empty();
+			}
+
+			function jsLoadComplete(time) {
+				showFlash();
+			}
+
+			function jsError(type, txt) {
+				jQuery("#flash-other").removeClass("otherDefault");
+				showFlashOther("error");
+				if(type < 2) {
+					errorContent(type, txt, " ，6秒后自动跳转到登陆页，也可点击", "前往登录页", goLogin);
+				} else {
+					errorContent(type, txt, " ，6秒后自动重新加载，也可点击", "重新加载", reloadSWF);
+				}
+			}
+
+			function errorContent(type, txt, txt1, txt2, fun) {
+				if(!txt) {
+					if(type == 0) {
+						txt = "对不起，服务器维护";
+					} else if(type == 1) {
+						txt = "用户不存在";
+					} else if(type == 2) {
+						txt = "对不起，游戏意外错误，无法正常运行";
+					} else if(type == 3) {
+						txt = "对不起，服务器连接超时";
+					}
+				}
+				jQuery("#flash-other").append("<p><strong>" + txt + "</strong><span>" + txt1 + "</span><a>" + txt2 + "</a></p>");
+				jQuery("#flash-other a").click(function() {
+					fun();
+					return false;
+				});
+				setTimeout(fun, 6000);
+			}
+
+			function jsPay() {
+				showFlashOther();
+				jQuery("#flash-other").append("<a>返回</a>");
+				jQuery("#flash-other a").click(function() {
+					jsSendToAS();
+					return false;
+				});
+			}
+
+			function jsSendToAS(txt) {
+				showFlash();
+				try {
+					jQuery("#flash-paohui object").get(0).jsSendToAS(txt);
+				} catch(err) {
+				}
+			}
+		</script>
+	</head>
+	<body class="w1000">
+		<div id="header"><img src="load/images/head.jpg" alt="logo" />
+		</div>
+		<div id="content">
+			<div id="frame-left-right">
+				<div id="frame-left"></div>
+				<div id="main" class="flash">
+					<div id="flash-other"  class="flash otherDefault">
+						<div class="wait">
+							游戏正在连接服务器...
+						</div>
+					</div>
+					<div id="flash-paohui" class="flash">
+						<div id="flash-content" style="display:none;">
+							<a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+							<p>
+								请您下载最新版本的Flash Player安装
+							</p></a>
+						</div>
+					</div>
+					<iframe src=""></iframe>
+				</div>
+				<div id="frame-right"></div>
+			</div>
+			<div id="frame-bottom"></div>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="google" value="notranslate" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="锐易通是一个立足于互联网的娱乐软件公司，由侯锐和刘颖于2005年在北京创立。我们的业务主要是娱乐软件的研发和运营以及为客户提供相关的技术支持服务。" />
+		<meta name="keywords" content="锐易通, 互联网游戏, 网络游戏, 互联网娱乐, WEB游戏, WEB3.0, 语音互动游戏, 文字互动游戏, MUD, 月球村, 泡泡鱼, 炮灰战纪, raytoon" />
+		<meta name="author" content="侯锐, 刘洪峰" />
+		<meta name="verify-v1" content="cgXLf1ZMaP0z3cBObKAKIwjuVqM0L0RXhJ9RkSQkOq4=" />
+		<meta name="y_key" content="89a49fc9634e2596" />
+		<title>炮灰战纪官方网站</title>
+		<link rel="stylesheet" type="text/css" href="load/css/cssbase-min.css" />
+		<link rel="stylesheet" type="text/css" href="load/css/paohui-weibo.css" />
+		<link rel="stylesheet" type="text/css" href="load/css/colorbox.css" />
+		<script type="text/javascript" src="load/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="load/scripts/jquery.url.js"></script>
+		<script type="text/javascript" src="load/scripts/swfobject.js"></script>
+		<script type="text/javascript" src="load/scripts/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2743903272"></script>
+		<script type="text/javascript">
+			var PConfig = {
+				appID : 2743903272,
+				appUrl : "http://apps.weibo.com/paohuizhanji",
+				ip : "58.83.236.251",
+				port : 7031,
+				callback : "http://test-paohui.raytoon.cn/weibo/callback/",
+				material : "http://test-paohui.raytoon.cn/weibo/v32/",
+				isOldIE : false,
+				count : 0
+			}
+			jQuery(document).ready(function() {
+				if (jQuery.browser.msie && jQuery.browser.version < 8)
+					PConfig.isOldIE = true;
+				navClick();
+				addSWF();
+				Renren.init({
+					appId : PConfig.appID
+				});
+			})
+			function navClick() {
+				jQuery("#nav a").click(function() {
+					var className = jQuery(this).attr("class");
+					if (className.indexOf("head-nav-d") != -1) {
+						return false;
+					} else if (className == "head-nav-1") {
+						jQuery("#flash-paohui object").get(0).jsSendToAS("jsPay");
+					} else if (className == "head-nav-2") {
+						jQuery("#flash-paohui object").get(0).jsSendToAS("jsInvite");
+						jsInvite('title=索洛米星球需要你！&msg=我正在索洛米星球上，瓶盖多，炮灰傻，速来，共图解放全人类的宏伟大业！');
+						return false;
+					}
+				});
+			}
+
+			function addSWF() {
+				jQuery("#flash-paohui").empty().append('<div class="wait">游戏正在连接服务器...</div><div id="flash-content" style="display:none;"><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /><p>请您下载最新版本的Flash Player安装</p></a></div>');
+				var session = jQuery.url().param("sessionid");
+				var flashvars = {
+					config : [session, PConfig.ip, PConfig.port, PConfig.material]
+				};
+				var params = {
+					wmode : "transparent",
+					allowScriptAccess : "always",
+					hasPriority : "true"
+				};
+				var attributes = {
+					id : "paohui",
+					name : "paohui"
+				};
+				swfobject.embedSWF(PConfig.material + "CannonFodder.swf", "flash-content", "756", "600", "10.2", "load/swf/expressInstall.swf", flashvars, params, attributes, embedSWFComplete);
+				showFlash();
+			}
+
+			function embedSWFComplete() {
+				//如果安装显示安装flashplayer页面DIV
+				if ((jQuery("#flash-paohui").find("a").attr("href") == "http://www.adobe.com/go/getflashplayer") || (jQuery("#paohui").attr("data") == "load/swf/expressInstall.swf")) {
+					jQuery("#flash-paohui .wait").remove();
+					jQuery("#flash-content").show();
+				}
+			}
+
+			function goLogin() {
+				//top.location.href = "http://www.weibo.com";
+				top.location = PConfig.appUrl;
+			}
+
+			function showFlashOther(addClass) {
+				jQuery("#flash-other").empty().show();
+				jQuery("#flash-other").append("<a href='#' class='backupClose'>返回游戏</a>");
+				jQuery("#flash-other a").click(function() {
+					jsSendToAS();
+					return false;
+				});
+				if (addClass)
+					jQuery("#flash-other").addClass(addClass);
+			}
+
+			function showFlash() {
+				jQuery("#flash-other").removeClass("error").addClass("otherDefault").hide().empty();
+			}
+
+			function jsLoadComplete(txt) {
+				if (txt) {
+					jQuery("#nav a:eq(0)").removeClass("head-nav-d-1").addClass("head-nav-1");
+					jQuery("#nav a:eq(1)").removeClass("head-nav-d-2").addClass("head-nav-2");
+				} else {
+					jQuery("#flash-paohui .wait").remove();
+				}
+			}
+
+			function jsError(type, txt) {
+				jQuery("#flash-other").removeClass("otherDefault");
+				showFlashOther("error");
+				if (type == 0) {
+					if (PConfig.count > 1) {
+						errorContent(type, txt, " ，6秒后自动跳转到首页，", "前往首页", goLogin);
+					} else {
+						addSWF();
+					}
+				} else if (type == 1) {
+					errorContent(type, txt, " ，6秒后自动跳转到首页，", "前往首页", goLogin);
+				} else {
+					errorContent(type, txt, " ，6秒后自动重新加载，", "重新加载", addSWF);
+				}
+			}
+
+			function errorContent(type, txt, txt1, txt2, fun) {
+				if (!txt) {
+					if (type == 0) {
+						PConfig.count++;
+						txt = "对不起，服务器维护";
+					} else if (type == 1) {
+						txt = "用户不存在";
+					} else if (type == 2) {
+						txt = "对不起，游戏意外错误，无法正常运行";
+					} else if (type == 3) {
+						txt = "对不起，服务器连接超时";
+					}
+				}
+				jQuery("#flash-other").append("<p><strong>" + txt + "</strong><span>" + txt1 + "</span><span>也可点击</span><a href='#'>" + txt2 + "</a></p>");
+				jQuery("#flash-other a").click(function() {
+					fun();
+					return false;
+				});
+				setTimeout(fun, 6000);
+			}
+
+			function getAPIData(data) {
+				showFlashOther();
+				return jQuery.url('?' + data).param();
+			}
+
+			function jsPay(txt) {
+				showFlashOther();
+				var data = getAPIData(txt);
+				dialogParams({
+					content : data,
+					url : "pay.html"
+				});
+			}
+
+			function jsFeed(txt) {
+				var data = getAPIData(txt);
+				WB2.anyWhere(function(W) {
+					W.widget.publish({
+						id : 'standardSelector',
+						default_text : data.name + data.description,
+						default_image : PConfig.material + data.image,
+						callback : function(data) {
+							//
+							if (window.console)
+								console.log(data);
+							jsSendToAS(data);
+						}
+					});
+				});
+
+			}
+
+			function jsInvite(txt) {
+				var data = getAPIData(txt);
+				WB2.anyWhere(function(W) {
+					W.widget.selector({
+						id : "standardSelector",
+						title : data.title + data.msg,
+						callback : function(data) {
+							//
+							if (window.console)
+								console.log(data);
+							jsSendToAS(data);
+						}
+					});
+				});
+			}
+
+			function jsSendToAS(txt) {
+				showFlash();
+				try {
+					jQuery("#flash-paohui object").get(0).jsSendToAS(txt);
+				} catch(err) {
+				}
+			}
+
+			function dialogParams(params) {
+				var type = params.type ? params.type : 0;
+				var value = params.value ? params.value : "";
+				jQuery.colorbox({
+					iframe : true,
+					fastIframe : false,
+					innerWidth : 750,
+					innerHeight : 580,
+					top : 74,
+					href : params.url,
+					onComplete : function() {
+						dialogComplete(params.content);
+					},
+					onClosed : function() {
+						jsSendToAS(value);
+					}
+				});
+			}
+
+			function dialogComplete(content) {
+				var form = jQuery(".cboxIframe").contents().find("form");
+				var input = form.find("input");
+				input.eq(0).attr("value", PConfig.appID);
+				alert(input.eq(0).attr("value"));
+				input.eq(1).attr("value", content.order_number);
+				input.eq(2).attr("value", content.token);
+				input.eq(3).attr("value", PConfig.callback + "pay?");
+				form.submit();
+			}
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="nav">
+				<a href="#" class="head-nav-d-1">充值</a><a href="#" class="head-nav-d-2">好友</a><a href="#" target="_blank" class="head-nav-3">讨论</a><a href="#"  target="_blank" class="head-nav-4">帮助</a>
+			</div>
+			<div id="main" class="flash">
+				<div id="flash-other"  class="flash"></div>
+				<div id="flash-paohui" class="flash"></div>
+			</div>
+			<div id="info">
+				声明：此游戏应用由“北京锐易通科技有限公司”开发提供。如遇问题，请拨打客服电话：010-57412312、010-57412313。
+			</div>
+		</div>
+	</body>
+</html>
