@@ -1,11 +1,11 @@
-service API ÔÚºÜ¶à mediator ÖĞÍ¨¹ıÏàÍ¬µÄ·½Ê½·ÃÎÊ, ½«´ËĞĞÎª·â×°µ½Ò»¸ö command ÀïÓĞÒæÓÚ±£³Ö´ËĞĞÎªµÄÒ»ÖÂĞÔ²¢¼õÉÙ¶Ô´Ë service µÄ·´¸´µ÷ÓÃÒÔ¼°ÔÚÄãµÄ mediator ÀïµÄÖ±½Ó·ÃÎÊ.
+service API åœ¨å¾ˆå¤š mediator ä¸­é€šè¿‡ç›¸åŒçš„æ–¹å¼è®¿é—®, å°†æ­¤è¡Œä¸ºå°è£…åˆ°ä¸€ä¸ª command é‡Œæœ‰ç›Šäºä¿æŒæ­¤è¡Œä¸ºçš„ä¸€è‡´æ€§å¹¶å‡å°‘å¯¹æ­¤ service çš„åå¤è°ƒç”¨ä»¥åŠåœ¨ä½ çš„ mediator é‡Œçš„ç›´æ¥è®¿é—®.
 
 ModelPrepCommand 
 ViewPrepCommand
 
-viewºÍmodelÏÂ¿É°´Ğè½¨utils,events,interfacesÎÄ¼ş¼Ğ,²Î¿¼Index CardsÊ¾Àı
+viewå’Œmodelä¸‹å¯æŒ‰éœ€å»ºutils,events,interfacesæ–‡ä»¶å¤¹,å‚è€ƒIndex Cardsç¤ºä¾‹
 
-ËùÓĞCommand,Mediator,ProxyµÄÍ¨Öª³£Á¿¶¼Ğ´ApplicationFacadeÀï¡£»òÕßProxy·¢¸øMediatorµÄÍ¨Öª³£Á¿Ğ´ProxyÀï£¬
+æ‰€æœ‰Command,Mediator,Proxyçš„é€šçŸ¥å¸¸é‡éƒ½å†™ApplicationFacadeé‡Œã€‚æˆ–è€…Proxyå‘ç»™Mediatorçš„é€šçŸ¥å¸¸é‡å†™Proxyé‡Œï¼Œ
 
 // Notification name constants
 
@@ -15,36 +15,3 @@ viewºÍmodelÏÂ¿É°´Ğè½¨utils,events,interfacesÎÄ¼ş¼Ğ,²Î¿¼Index CardsÊ¾Àı
 // view
 // model
 
-
-ºÍComp½»»¥´¥·¢µÄÊÂ¼şÔÚÆäÄÚ²¿´¦Àí£¬µ±Ó°Ïìµ½¿ò¼ÜÆäËû²¿·ÖÊ±£¬·¢×Ô¶¨ÒåÊÂ¼ş¸ø×Ô¼ºµÄMediator£¬ÓÉÆä×ª·¢¿ò¼ÜÍ¨Öª¡£»òÕßMediator½Ó¹ÜËùÓĞComp½»»¥ÊÂ¼ş¡£ÎÒÇãÏòMediatorÕÆÎÕËùÓĞ¿ØÖÆÈ¨£¬robotlegsÒ²ÊÇÕâÑù¡£
-
-CompÌá¹©APIÂú×ãÆäMediatorËùÓĞĞèÇó¡£
-
-Component:
-
-// Event name to tell Mediator to do something
-public static const DO_SOMETHING:String = "doSomething";
-
-
-dispatchEvent(new Event(DO_SOMETHING));
-
-
-Mediator:
-
-// Listen for events from the view component 
-  viewComponent.addEventListener(ViewComponent.DO_SOMETHING, _onDoSomething);
-
-    private function onDoSomething(event:Event):void
-    {
-
-            sendNotification( ApplicationFacade.DO_SOMETHING);
-            
-     }
-
-Mediator:
-
-Í¬²½Êı¾İÍ¨¹ıProxyÊµÀıÖ±½ÓÈ¡£¬Òì²½Êı¾İ£¬µÈProxy·¢Í¨Öª¡£
-
-
-
-AsyncCommandÊÇÓĞÉúÃüÖÜÆÚµÄÒì²½Command£¬µ½ÆÚÁËÓÃcommandComplete();  Ïú»Ù¡£¾ßÌå¿´SequentialÊ¾Àı
