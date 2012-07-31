@@ -15,7 +15,7 @@ package mvc.view {
 	 */
 	public class AppMediator extends Mediator {
 		// Cannonical name of the Mediator
-		public static const NAME : String = "ModuleNameMediator";
+		public static const NAME : String = "AppMediator";
 
 		public function AppMediator(viewComponent : AppName) {
 			super(NAME, viewComponent);
