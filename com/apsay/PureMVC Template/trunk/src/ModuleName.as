@@ -6,7 +6,7 @@ package {
 	import flash.events.Event;
 
 	/**
-	 * 主容器，对应有主Mediator
+	 * Application主容器，对应有Application主Mediator
 	 * 往主容器里添加子comp的方法写这里，可在主Mediator调用并传入comp
 	 */
 	public class ModuleName extends Sprite {
