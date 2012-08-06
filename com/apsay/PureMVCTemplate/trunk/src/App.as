@@ -16,6 +16,7 @@ package {
 		}
 
 		private function _init(event : Event = null) : void {
+			if (event) removeEventListener(Event.ADDED_TO_STAGE, _init);
 			AppFacade.getInstance().startup(this);
 			_initComp();
 		}
