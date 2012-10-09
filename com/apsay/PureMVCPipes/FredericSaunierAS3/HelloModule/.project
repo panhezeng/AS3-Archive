@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>HelloModule</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.powerflasher.fdt.core.FlashBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.powerflasher.fdt.core.FlashNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>PureMVC_AS3_MultiCore_1_0_5swc.swc</name>
+			<type>1</type>
+			<locationURI>PureMVC_AS3_MultiCore_1_0_5swc</locationURI>
+		</link>
+		<link>
+			<name>Utility_AS3_MultiCore_Pipes_1_1swc.swc</name>
+			<type>1</type>
+			<locationURI>Utility_AS3_MultiCore_Pipes_1_1swc</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

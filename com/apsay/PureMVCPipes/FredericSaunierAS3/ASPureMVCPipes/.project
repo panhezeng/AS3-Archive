@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>ASPureMVCPipes</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.powerflasher.fdt.core.FlashBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.powerflasher.fdt.core.FlashNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Pipes_1_1</name>
+			<type>2</type>
+			<locationURI>Pipes_1_1</locationURI>
+		</link>
+		<link>
+			<name>PureMVC_AS3_MultiCore_1_0_5</name>
+			<type>2</type>
+			<locationURI>PureMVC_AS3_MultiCore_1_0_5</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>
