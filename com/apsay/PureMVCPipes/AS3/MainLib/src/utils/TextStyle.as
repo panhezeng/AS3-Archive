@@ -191,14 +191,34 @@ package utils {
 			return timeTXT;
 		}
 
+
 		/**
 		 * Number类型的浮点小数为超级长，此方法可以获得指定小数位的小数文本用来显示
 		 * @param num 浮点小数
 		 * @param places 小数位
+		 * @param noZero 是否去掉末尾的零
 		 */
-		public static function getfiniteDecimals(num : Number, places : int) : String {
+		public static function getfiniteDecimals(num : Number, places : int, noZero : Boolean = true) : String {
 			var ary : Array = String(num).split(".");
-			return  ary[0] + "." + String(ary[1]).substr(0, places);
+			var decimal : String;
+			var numTXT : String = ary[0];
+			var i : int;
+			if (ary.length == 2) {
+				decimal = String(ary[1]).substr(0, places);
+				if (noZero) {
+					for (i = decimal.length - 1;i > -1;i--) {
+						if (decimal.charAt(i) == "0") {
+							decimal = decimal.slice(0, i);
+						} else {
+							break;
+						}
+					}
+				}
+
+				if (decimal.length) numTXT += ("." + decimal);
+			}
+			return numTXT;
 		}
+
 	}
 }
